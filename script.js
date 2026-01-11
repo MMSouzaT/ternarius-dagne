@@ -95,7 +95,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Simulate form submission (in a real application, this would send data to a server)
+            // Simulate form submission
+            // NOTE: In production, this should send data to a backend server via fetch/AJAX
+            // Example: fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
             formMessage.className = 'form-message success';
             formMessage.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
             
@@ -112,13 +114,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const href = this.getAttribute('href');
+            // Validate that href is not just '#' and contains a valid selector
+            if (href && href !== '#' && href.length > 1) {
+                try {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                } catch (error) {
+                    // Invalid selector, do nothing
+                    console.warn('Invalid selector for smooth scroll:', href);
+                }
             }
         });
     });
@@ -159,11 +170,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add scroll to top functionality
+    // Add scroll to top functionality with throttling
     let lastScrollTop = 0;
+    let ticking = false;
     const header = document.querySelector('header');
     
-    window.addEventListener('scroll', function() {
+    function handleScroll() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         if (scrollTop > lastScrollTop && scrollTop > 100) {
@@ -175,6 +187,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         lastScrollTop = scrollTop;
+        ticking = false;
+    }
+    
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(handleScroll);
+            ticking = true;
+        }
     });
 
     header.style.transition = 'transform 0.3s ease';
