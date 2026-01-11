@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Imóveis Disponíveis - Casas, Apartamentos e Terrenos">
+    <title>Ternarius Imóveis - Imóveis Disponíveis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>Ternarius Imóveis</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="imoveis.html" class="active">Imóveis</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Imóveis Disponíveis</h1>
+            <p>Encontre o imóvel ideal para você</p>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters">
+        <div class="container">
+            <div class="filter-group">
+                <select class="filter-select" id="tipo-filter">
+                    <option value="">Todos os Tipos</option>
+                    <option value="apartamento">Apartamento</option>
+                    <option value="casa">Casa</option>
+                    <option value="terreno">Terreno</option>
+                    <option value="comercial">Comercial</option>
+                </select>
+                <select class="filter-select" id="transacao-filter">
+                    <option value="">Venda/Locação</option>
+                    <option value="venda">Venda</option>
+                    <option value="locacao">Locação</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section class="properties">
+        <div class="container">
+            <div class="properties-grid">
+                <!-- Property Card 1 -->
+                <div class="property-card" data-tipo="apartamento" data-transacao="venda">
+                    <div class="property-image">
+                        <div class="property-badge">Venda</div>
+                        <div class="property-placeholder">🏢</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Apartamento Moderno</h3>
+                        <p class="property-location">📍 Jardins - São Paulo/SP</p>
+                        <p class="property-description">Apartamento com 3 quartos, 2 banheiros, sala ampla e garagem para 2 carros</p>
+                        <div class="property-features">
+                            <span>🛏️ 3 quartos</span>
+                            <span>🚿 2 banheiros</span>
+                            <span>📏 120m²</span>
+                        </div>
+                        <div class="property-footer">
+                            <span class="property-price">R$ 850.000</span>
+                            <a href="contato.html" class="btn btn-small">Contato</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 2 -->
+                <div class="property-card" data-tipo="casa" data-transacao="venda">
+                    <div class="property-image">
+                        <div class="property-badge">Venda</div>
+                        <div class="property-placeholder">🏠</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Casa Residencial</h3>
+                        <p class="property-location">📍 Vila Mariana - São Paulo/SP</p>
+                        <p class="property-description">Casa com 4 quartos, 3 banheiros, quintal e área gourmet</p>
+                        <div class="property-features">
+                            <span>🛏️ 4 quartos</span>
+                            <span>🚿 3 banheiros</span>
+                            <span>📏 250m²</span>
+                        </div>
+                        <div class="property-footer">
+                            <span class="property-price">R$ 1.200.000</span>
+                            <a href="contato.html" class="btn btn-small">Contato</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 3 -->
+                <div class="property-card" data-tipo="apartamento" data-transacao="locacao">
+                    <div class="property-image">
+                        <div class="property-badge badge-rent">Locação</div>
+                        <div class="property-placeholder">🏢</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Apartamento Compacto</h3>
+                        <p class="property-location">📍 Pinheiros - São Paulo/SP</p>
+                        <p class="property-description">Apartamento com 2 quartos, 1 banheiro e 1 vaga de garagem</p>
+                        <div class="property-features">
+                            <span>🛏️ 2 quartos</span>
+                            <span>🚿 1 banheiro</span>
+                            <span>📏 65m²</span>
+                        </div>
+                        <div class="property-footer">
+                            <span class="property-price">R$ 3.500/mês</span>
+                            <a href="contato.html" class="btn btn-small">Contato</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 4 -->
+                <div class="property-card" data-tipo="casa" data-transacao="locacao">
+                    <div class="property-image">
+                        <div class="property-badge badge-rent">Locação</div>
+                        <div class="property-placeholder">🏠</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Casa em Condomínio</h3>
+                        <p class="property-location">📍 Morumbi - São Paulo/SP</p>
+                        <p class="property-description">Casa com 3 quartos, 2 banheiros e piscina</p>
+                        <div class="property-features">
+                            <span>🛏️ 3 quartos</span>
+                            <span>🚿 2 banheiros</span>
+                            <span>📏 180m²</span>
+                        </div>
+                        <div class="property-footer">
+                            <span class="property-price">R$ 6.000/mês</span>
+                            <a href="contato.html" class="btn btn-small">Contato</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 5 -->
+                <div class="property-card" data-tipo="terreno" data-transacao="venda">
+                    <div class="property-image">
+                        <div class="property-badge">Venda</div>
+                        <div class="property-placeholder">🌳</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Terreno Comercial</h3>
+                        <p class="property-location">📍 Itaim Bibi - São Paulo/SP</p>
+                        <p class="property-description">Terreno plano, ideal para construção comercial</p>
+                        <div class="property-features">
+                            <span>📏 500m²</span>
+                            <span>📋 Documentação OK</span>
+                        </div>
+                        <div class="property-footer">
+                            <span class="property-price">R$ 2.500.000</span>
+                            <a href="contato.html" class="btn btn-small">Contato</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Card 6 -->
+                <div class="property-card" data-tipo="comercial" data-transacao="locacao">
+                    <div class="property-image">
+                        <div class="property-badge badge-rent">Locação</div>
+                        <div class="property-placeholder">🏢</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Sala Comercial</h3>
+                        <p class="property-location">📍 Avenida Paulista - São Paulo/SP</p>
+                        <p class="property-description">Sala comercial em prédio moderno com infraestrutura completa</p>
+                        <div class="property-features">
+                            <span>📏 80m²</span>
+                            <span>🅿️ 2 vagas</span>
+                            <span>🏢 Andar alto</span>
+                        </div>
+                        <div class="property-footer">
+                            <span class="property-price">R$ 5.500/mês</span>
+                            <a href="contato.html" class="btn btn-small">Contato</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Não Encontrou o que Procura?</h2>
+            <p>Entre em contato conosco e iremos ajudá-lo a encontrar o imóvel ideal</p>
+            <a href="contato.html" class="btn btn-secondary">Fale Conosco</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Ternarius Imóveis</h3>
+                    <p>Sua parceira ideal para encontrar o imóvel perfeito</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="imoveis.html">Imóveis</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>📞 (11) 98765-4321</p>
+                    <p>📧 contato@ternariusimoveis.com.br</p>
+                    <p>📍 São Paulo - SP</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ternarius Imóveis. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5511987654321" class="whatsapp-float" target="_blank" title="Fale conosco no WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 8.135-2.135c2.369 1.228 5.028 1.885 7.865 1.885 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.375c-2.608 0-5.124-0.763-7.287-2.208l-0.525-0.333-5.446 1.428 1.454-5.407-0.365-0.543c-1.583-2.375-2.419-5.128-2.419-7.937 0-7.661 6.233-13.895 13.895-13.895s13.895 6.233 13.895 13.895-6.624 13.895-14.285 13.895zM23.108 19.447c-0.371-0.186-2.197-1.083-2.539-1.208-0.341-0.124-0.589-0.186-0.837 0.186s-0.961 1.208-1.179 1.456c-0.217 0.248-0.434 0.279-0.806 0.093-0.371-0.186-1.568-0.578-2.987-1.843-1.104-0.984-1.849-2.201-2.066-2.573s-0.023-0.573 0.163-0.758c0.167-0.167 0.371-0.434 0.557-0.651 0.186-0.217 0.248-0.371 0.371-0.62 0.124-0.248 0.062-0.465-0.031-0.651s-0.837-2.015-1.147-2.759c-0.303-0.724-0.611-0.627-0.837-0.638-0.217-0.011-0.465-0.013-0.713-0.013s-0.651 0.093-0.992 0.465c-0.341 0.371-1.301 1.27-1.301 3.099s1.332 3.593 1.518 3.841c0.186 0.248 2.617 3.997 6.342 5.605 0.886 0.383 1.577 0.611 2.116 0.782 0.889 0.283 1.698 0.244 2.338 0.148 0.713-0.107 2.197-0.899 2.507-1.766s0.31-1.611 0.217-1.766c-0.093-0.155-0.341-0.248-0.713-0.434z" fill="currentColor"/>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
