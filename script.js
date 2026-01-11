@@ -95,9 +95,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Simulate form submission
-            // NOTE: In production, this should send data to a backend server via fetch/AJAX
-            // Example: fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
+            // Simulate form submission for demonstration purposes
+            // NOTE: In production, replace this with a backend API call:
+            // fetch('/api/contact', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ name, email, phone, subject, message })
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     formMessage.className = 'form-message success';
+            //     formMessage.textContent = data.message;
+            // })
+            // .catch(error => {
+            //     formMessage.className = 'form-message error';
+            //     formMessage.textContent = 'Erro ao enviar mensagem. Tente novamente.';
+            // });
+            
             formMessage.className = 'form-message success';
             formMessage.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
             
@@ -127,8 +141,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                     }
                 } catch (error) {
-                    // Invalid selector, do nothing
-                    console.warn('Invalid selector for smooth scroll:', href);
+                    // Invalid selector, ignore the click event
+                    // In development, you might want to log this for debugging
                 }
             }
         });
@@ -170,7 +184,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add scroll to top functionality with throttling
+    // Header hide/show on scroll with performance optimization
+    // Uses requestAnimationFrame to throttle scroll events for better performance
+    // Hides header when scrolling down, shows when scrolling up
     let lastScrollTop = 0;
     let ticking = false;
     const header = document.querySelector('header');
@@ -179,10 +195,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         if (scrollTop > lastScrollTop && scrollTop > 100) {
-            // Scrolling down
+            // Scrolling down - hide header
             header.style.transform = 'translateY(-100%)';
         } else {
-            // Scrolling up
+            // Scrolling up - show header
             header.style.transform = 'translateY(0)';
         }
         
