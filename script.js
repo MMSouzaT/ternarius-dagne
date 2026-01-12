@@ -36,20 +36,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Property Filters
     const tipoFilter = document.getElementById('tipo-filter');
     const transacaoFilter = document.getElementById('transacao-filter');
+    const searchFilter = document.getElementById('search-filter');
     const propertyCards = document.querySelectorAll('.property-card');
 
     function filterProperties() {
         const tipoValue = tipoFilter ? tipoFilter.value : '';
         const transacaoValue = transacaoFilter ? transacaoFilter.value : '';
+        const searchValue = searchFilter ? searchFilter.value.toLowerCase().trim() : '';
 
         propertyCards.forEach(card => {
             const cardTipo = card.getAttribute('data-tipo');
             const cardTransacao = card.getAttribute('data-transacao');
+            const cardText = card.textContent.toLowerCase();
             
             const tipoMatch = !tipoValue || cardTipo === tipoValue;
             const transacaoMatch = !transacaoValue || cardTransacao === transacaoValue;
+            const searchMatch = !searchValue || cardText.includes(searchValue);
 
-            if (tipoMatch && transacaoMatch) {
+            if (tipoMatch && transacaoMatch && searchMatch) {
                 card.style.display = 'block';
                 // Add animation
                 card.style.animation = 'fadeInUp 0.5s ease';
@@ -65,6 +69,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (transacaoFilter) {
         transacaoFilter.addEventListener('change', filterProperties);
+    }
+
+    if (searchFilter) {
+        searchFilter.addEventListener('input', filterProperties);
+    }
+
+    // Clear Filters Button
+    const clearFiltersBtn = document.getElementById('clear-filters');
+    if (clearFiltersBtn) {
+        clearFiltersBtn.addEventListener('click', function() {
+            if (searchFilter) searchFilter.value = '';
+            if (tipoFilter) tipoFilter.value = '';
+            if (transacaoFilter) transacaoFilter.value = '';
+            filterProperties();
+        });
     }
 
     // Contact Form Handler

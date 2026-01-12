@@ -275,13 +275,47 @@ header {
     justify-content: center;
 }
 
-.filter-select {
+.filter-select,
+.filter-input {
     padding: 10px 20px;
     border: 2px solid var(--border-color);
     border-radius: 5px;
     font-size: 1rem;
     background-color: var(--white);
     cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.filter-input {
+    flex: 1;
+    min-width: 250px;
+    cursor: text;
+}
+
+.filter-input:focus,
+.filter-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.filter-input::placeholder {
+    color: #999;
+}
+
+.btn-clear-filters {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.btn-clear-filters:hover {
+    background-color: #c0392b;
 }
 
 .properties {
@@ -592,6 +626,32 @@ header {
 .faq-item h3 {
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+}
+
+/* Map Section */
+.map-section {
+    padding: 60px 20px;
+    background-color: var(--white);
+}
+
+.map-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.map-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
 }
 
 /* Footer */
